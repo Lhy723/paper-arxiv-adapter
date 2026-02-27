@@ -4,6 +4,10 @@ version = "0.1.0"
 description = "轻量封装 arxiv.py/feedparser，统一「单篇 / 批量 / 订阅」采集接口"
 readme = "README.md"
 requires-python = ">=3.13"
+authors = [
+    { name = "Lhy723" }
+]
+license = { text = "MIT" }
 dependencies = [
     "arxiv>=2.4.0",
     "feedparser>=6.0.12",
