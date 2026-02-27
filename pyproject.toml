@@ -1,0 +1,18 @@
+[project]
+name = "paper-arxiv-adapter"
+version = "0.1.0"
+description = "轻量封装 arxiv.py/feedparser，统一「单篇 / 批量 / 订阅」采集接口"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "arxiv>=2.4.0",
+    "feedparser>=6.0.12",
+]
+
+[project.scripts]
+dev = "dev:main"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+]

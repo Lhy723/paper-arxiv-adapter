@@ -1,0 +1,12 @@
+[project]
+name = "paper-arxiv-adapter-web"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "paper-arxiv-adapter",
+]
+
+[tool.uv.sources]
+paper-arxiv-adapter = { path = "../..", editable = true }
