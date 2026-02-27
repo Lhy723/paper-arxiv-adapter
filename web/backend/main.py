@@ -7,7 +7,8 @@ from typing import List
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.openapi.docs import get_swagger_ui_html
+from fastapi.responses import FileResponse, HTMLResponse
 from pydantic import BaseModel
 
 from paper_arxiv_adapter import ArxivAdapter, SQLiteBackend
@@ -45,7 +46,38 @@ app = FastAPI(
     description="ArXiv 论文采集适配器 API",
     version="0.1.0",
     lifespan=lifespan,
+    docs_url=None,
+    redoc_url=None,
 )
+
+
+@app.get("/docs", include_in_schema=False)
+async def custom_swagger_ui_html():
+    return get_swagger_ui_html(
+        openapi_url=app.openapi_url,
+        title=app.title + " - Swagger UI",
+        swagger_js_url="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js",
+        swagger_css_url="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css",
+    )
+
+
+@app.get("/redoc", include_in_schema=False)
+async def custom_redoc_html():
+    return HTMLResponse(content="""
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ArXiv Paper Adapter - ReDoc</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>body { margin: 0; padding: 0; }</style>
+</head>
+<body>
+    <redoc spec-url='/openapi.json'></redoc>
+    <script src="https://unpkg.com/redoc@latest/bundles/redoc.standalone.js"></script>
+</body>
+</html>
+""")
 
 
 @app.get("/api/stats")
@@ -59,8 +91,8 @@ async def get_stats():
 async def list_papers(
     limit: int = 20, 
     offset: int = 0,
-    sort_by: str = Query("created_at", regex="^(created_at|title|published|updated|arxiv_id)$"),
-    order: str = Query("desc", regex="^(asc|desc)$")
+    sort_by: str = Query("created_at", pattern="^(created_at|title|published|updated|arxiv_id)$"),
+    order: str = Query("desc", pattern="^(asc|desc)$"),
 ):
     if not adapter or not adapter.storage:
         return {"papers": [], "total": 0, "limit": limit, "offset": offset}

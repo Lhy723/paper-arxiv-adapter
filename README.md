@@ -98,7 +98,9 @@ versions = adapter.get_versions("2301.07041")
 | POST | `/api/subscribe` | 订阅分类更新 |
 | GET | `/api/stats` | 获取统计数据 |
 
-API 文档：http://localhost:8000/docs
+API 文档：
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
 ## 项目结构
 

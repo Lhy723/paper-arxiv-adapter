@@ -89,7 +89,7 @@ const isActive = computed(() => (path: string) => {
 }
 
 .navbar-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
