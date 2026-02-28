@@ -7,23 +7,7 @@
 
 轻量封装 arxiv.py/feedparser，统一「单篇 / 批量 / 订阅」采集接口，配备现代化 Web 管理界面。
 
-## 截图预览
-
-### 搜索页面
 ![搜索页面](docs/screenshots/search.png)
-*搜索 ArXiv 论文，支持排序、预览、选择性保存*
-
-### 数据库页面
-![数据库页面](docs/screenshots/database.png)
-*表格展示本地论文，支持排序、分页、搜索过滤*
-
-### 详情页面
-![详情页面](docs/screenshots/detail.png)
-*完整论文信息展示，包含摘要、作者、分类等*
-
-### 统计页面
-![统计页面](docs/screenshots/stats.png)
-*论文数量、存储空间、分类分布统计*
 
 ## 功能特性
 
@@ -84,6 +68,24 @@ cd web/backend && uv run uvicorn main:app
 ```
 
 访问 http://localhost:8000
+
+## 截图预览
+
+### 搜索页面
+![搜索页面](docs/screenshots/search.png)
+*搜索 ArXiv 论文，支持排序、预览、选择性保存*
+
+### 数据库页面
+![数据库页面](docs/screenshots/database.png)
+*表格展示本地论文，支持排序、分页、搜索过滤*
+
+### 详情页面
+![详情页面](docs/screenshots/detail.png)
+*完整论文信息展示，包含摘要、作者、分类等*
+
+### 统计页面
+![统计页面](docs/screenshots/stats.png)
+*论文数量、存储空间、分类分布统计*
 
 ## 核心库使用
 
