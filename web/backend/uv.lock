@@ -168,13 +168,17 @@ version = "0.1.0"
 source = { editable = "../../" }
 dependencies = [
     { name = "arxiv" },
+    { name = "fastapi" },
     { name = "feedparser" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "arxiv", specifier = ">=2.4.0" },
+    { name = "fastapi", specifier = ">=0.109.0" },
     { name = "feedparser", specifier = ">=6.0.12" },
+    { name = "uvicorn", specifier = ">=0.27.0" },
 ]
 
 [package.metadata.requires-dev]

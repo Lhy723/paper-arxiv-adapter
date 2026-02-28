@@ -1,6 +1,29 @@
 # ArXiv Paper Adapter
 
+[![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)](https://fastapi.tiangolo.com/)
+[![Vue](https://img.shields.io/badge/Vue-3.x-4FC08D.svg)](https://vuejs.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 轻量封装 arxiv.py/feedparser，统一「单篇 / 批量 / 订阅」采集接口，配备现代化 Web 管理界面。
+
+## 截图预览
+
+### 搜索页面
+![搜索页面](docs/screenshots/search.png)
+*搜索 ArXiv 论文，支持排序、预览、选择性保存*
+
+### 数据库页面
+![数据库页面](docs/screenshots/database.png)
+*表格展示本地论文，支持排序、分页、搜索过滤*
+
+### 详情页面
+![详情页面](docs/screenshots/detail.png)
+*完整论文信息展示，包含摘要、作者、分类等*
+
+### 统计页面
+![统计页面](docs/screenshots/stats.png)
+*论文数量、存储空间、分类分布统计*
 
 ## 功能特性
 
@@ -13,14 +36,18 @@
 - 可选存储：SQLite 或内存存储模式
 
 ### Web 界面
-- **搜索页面**：搜索 ArXiv 论文，支持排序、预览、选择性保存
-- **数据库页面**：表格展示本地论文，支持排序、分页、搜索过滤
-- **详情页面**：完整论文信息展示
-- **统计页面**：论文数量、存储空间、分类分布统计
+- 现代化 UI 设计，响应式布局
+- 实时搜索与预览
+- 批量操作支持
+- 数据可视化统计
 
 ## 安装
 
 ```bash
+# 克隆项目
+git clone https://github.com/Lhy723/paper-arxiv-adapter.git
+cd paper-arxiv-adapter
+
 # 安装依赖
 uv sync
 
@@ -34,7 +61,7 @@ cd web/frontend && npm install
 
 ```bash
 # Windows
-.\dev.bat
+python dev.py
 
 # 或分别启动
 # 终端 1 - 后端
@@ -118,17 +145,26 @@ paper-arxiv-adapter/
 │       └── src/
 │           ├── views/          # 页面组件
 │           └── components/     # 通用组件
+├── docs/
+│   └── screenshots/            # 截图文件
 ├── tests/                      # 测试文件
-├── dev.bat                     # 开发启动脚本
+├── dev.py                      # 开发启动脚本
 └── pyproject.toml
 ```
 
 ## 技术栈
 
-- **后端**: Python 3.13+, FastAPI, arxiv.py, feedparser
-- **前端**: Vue 3, TypeScript, Vite
-- **存储**: SQLite
+| 类别 | 技术 |
+|------|------|
+| 后端 | Python 3.13+, FastAPI, arxiv.py, feedparser |
+| 前端 | Vue 3, TypeScript, Vite |
+| 存储 | SQLite |
+| 包管理 | uv, npm |
+
+## 贡献
+
+欢迎提交 Issue 和 Pull Request！
 
 ## 开源协议
 
-MIT License
+[MIT License](LICENSE) © Lhy723
